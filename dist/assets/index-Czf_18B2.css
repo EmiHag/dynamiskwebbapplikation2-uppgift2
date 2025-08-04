@@ -4,7 +4,7 @@ body {
   align-items: center;
   min-height: 100vh;  /* Fyll hela höjden av skärmen */
   margin: 0;
-  background-color: #hotpink; /* valfri bakgrund */
+  background-color: #pink; /* valfri bakgrund */
 }
 
 /* Search bar container */
