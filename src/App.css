@@ -5,7 +5,7 @@
   max-width: 400px;
   display: flex;              /* Flexbox för centrerat innehåll */
   justify-content: center;    /* Horisontellt centrerat */
-  align-items: center;        /* Vertikalt centrerat (om det behövs) */
+  align-items: center;        /* Vertikalt centrerat (om det behövs) */ 
   flex-direction: column;     /* Staplar sökfält och resultat vertikalt */
 }
 
