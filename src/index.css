@@ -4,7 +4,7 @@ body {
   align-items: center;
   min-height: 100vh;  /* Fyll hela höjden av skärmen */
   margin: 0;
-  background-color: #FF1D8D; /* valfri bakgrund */
+  background-color: ; /* valfri bakgrund */
 }
 
 /* Search bar container */
@@ -103,5 +103,6 @@ body {
     right: 15px;
   }
 }
+
 
 
