@@ -3,6 +3,10 @@
   position: relative;
   margin: 0 auto;
   max-width: 400px;
+  display: flex;              /* Flexbox för centrerat innehåll */
+  justify-content: center;    /* Horisontellt centrerat */
+  align-items: center;        /* Vertikalt centrerat (om det behövs) */
+  flex-direction: column;     /* Staplar sökfält och resultat vertikalt */
 }
 
 /* Search input */
@@ -15,6 +19,7 @@
   outline: none;
   background-color: #f8f9fa;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;          /* Centrerar texten i input */
 }
 
 .search-input:focus {
@@ -42,8 +47,10 @@
 .search-results-container {
   position: absolute;
   top: calc(100% + 10px);
-  left: 0;
+  left: 50%;                 /* Flytta till mitten */
+  transform: translateX(-50%) translateY(10px);  /* Centrera horisontellt */
   width: 100%;
+  max-width: 400px;          /* Samma maxbredd som container */
   background-color: #fff;
   border: 2px solid #ddd;
   border-radius: 5px;
@@ -52,13 +59,12 @@
   max-height: 300px;
   overflow-y: auto;
   opacity: 0;
-  transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .search-results-container.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Search result item */
@@ -68,6 +74,7 @@
   transition: background-color 0.3s ease, padding-left 0.3s ease;
   font-size: 16px;
   color: #333;
+  text-align: center;          /* Centrerar texten i varje sökresultat */
 }
 
 .search-result:hover {
