@@ -1,105 +1,124 @@
+/* 🔭 Bakgrund med stjärnor (animation + gradient) */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;  /* Fyll hela höjden av skärmen */
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
-  background-color: #FF1D8D; /* valfri bakgrund */
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  animation: backgroundStars 30s infinite linear;
 }
 
-/* Search bar container */
+/* ✨ Rubrik */
+h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff33;
+}
+
+/* 🔍 Sökcontainer */
 .search-container {
   position: relative;
-  margin: 0 auto;
-  max-width: 400px;
-  display: flex;              /* Flexbox för centrerat innehåll */
-  justify-content: center;    /* Horisontellt centrerat */
-  align-items: center;        /* Vertikalt centrerat (om det behövs) */ 
-  flex-direction: column;     /* Staplar sökfält och resultat vertikalt */
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-/* Search input */
+/* 📥 Input */
 .search-input {
-  width: 100%;
-  padding: 12px 40px 12px 20px;
-  border: 2px solid #ddd;
-  border-radius: 25px;
-  font-size: 16px;
+  flex: 1;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 20px;
   outline: none;
-  background-color: #f8f9fa;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;          /* Centrerar texten i input */
-}
-
-.search-input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-}
-
-/* Search icon */
-.search-icon {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  color: #888;
-  cursor: pointer;
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-
-.search-icon:hover {
-  color: #007bff;
-}
-
-/* Search results container */
-.search-results-container {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;                 /* Flytta till mitten */
-  transform: translateX(-50%) translateY(10px);  /* Centrera horisontellt */
-  width: 100%;
-  max-width: 400px;          /* Samma maxbredd som container */
-  background-color: #fff;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  max-height: 300px;
-  overflow-y: auto;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.search-results-container.visible {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* Search result item */
-.search-result {
-  padding: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, padding-left 0.3s ease;
-  font-size: 16px;
+  background-color: #ffffff;
   color: #333;
-  text-align: center;          /* Centrerar texten i varje sökresultat */
+}
+
+/* 🔘 Sökknapp */
+.search-button {
+  padding: 20px 35px;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  background-color: #e50914;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #b00610;
+}
+
+/* 📄 Resultatbox */
+.search-results-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.search-result {
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  color: #111;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .search-result:hover {
-  background-color: #f5f5f5;
-  padding-left: 25px;
+  background-color: #eeeeee;
 }
 
-/* Responsiv design */
+/* 🌠 Animerad stjärnhimmel (bakgrundens rörelse) */
+@keyframes backgroundStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+/* 📱 Mobilanpassning */
 @media (max-width: 768px) {
-  .search-input {
-    font-size: 14px;
-    padding: 10px 35px 10px 15px;
+  h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
   }
 
-  .search-icon {
+  .search-input, .search-button {
     font-size: 16px;
-    right: 15px;
+    padding: 16px;
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-input {
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+
+  .search-button {
+    border-radius: 50px;
+    width: 100%;
   }
 }
